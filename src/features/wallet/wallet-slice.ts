@@ -10,7 +10,7 @@ const WALLET_STORAGE = "wallet-storage";
 const DEFAULT_INITIAL_STATE: Wallet = {
   balance: 0,
   transactions: [],
-  error: new Error(""),
+  error: "",
 };
 
 const initialState = getLocalStorageData<Wallet>(
@@ -25,25 +25,24 @@ export const walletSlice = createSlice({
     doDeposit: (state, action: PayloadAction<Transaction>) => {
       state.balance += action.payload.value;
       state.transactions.push(action.payload);
-      if (state.error.message) state.error.message = "";
+      if (state.error) state.error = "";
       localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
     },
     doWithdraw: (state, action: PayloadAction<Transaction>) => {
       if (state.balance >= action.payload.value) {
         state.balance -= action.payload.value;
         state.transactions.push(action.payload);
-        if (state.error.message) state.error.message = "";
+        if (state.error) state.error = "";
         localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
       } else {
-        const newError = new Error("Saldo insuficiente!");
-        state.error = newError;
+        state.error = "Saldo insuficiente!";
         localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
       }
     },
     resetWallet: (state) => {
       state.balance = 0;
       state.transactions = [];
-      state.error = new Error("");
+      state.error = "";
       localStorage.removeItem(WALLET_STORAGE);
     },
   },

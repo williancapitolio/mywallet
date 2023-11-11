@@ -20,7 +20,12 @@ export const App = () => {
   return (
     <>
       <h1>myWallet</h1>
-      <button onClick={() => dispatch(resetWallet())} disabled={localStorage.getItem("wallet-storage") ? false : true}>Resetar carteira</button>
+      <button
+        onClick={() => dispatch(resetWallet())}
+        disabled={localStorage.getItem("wallet-storage") ? false : true}
+      >
+        Resetar carteira
+      </button>
       <br />
       <span>Saldo: {balance}</span>
       <button
@@ -49,7 +54,7 @@ export const App = () => {
       >
         Sacar
       </button>
-      {error.message && <span>{error.message}</span>}
+      {error && <span>{error}</span>}
       <br />
       {transactions.length > 0 ? (
         transactions.map((transaction) => (
