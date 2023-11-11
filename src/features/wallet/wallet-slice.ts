@@ -37,9 +37,16 @@ export const walletSlice = createSlice({
       } else {
         const newError = new Error("Saldo insuficiente!");
         state.error = newError;
+        localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
       }
+    },
+    resetWallet: (state) => {
+      state.balance = 0;
+      state.transactions = [];
+      state.error = new Error("");
+      localStorage.removeItem(WALLET_STORAGE);
     },
   },
 });
 
-export const { doDeposit, doWithdraw } = walletSlice.actions;
+export const { doDeposit, doWithdraw, resetWallet } = walletSlice.actions;

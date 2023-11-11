@@ -2,7 +2,11 @@ import { useDispatch } from "react-redux";
 
 import { useAppSelector } from "./hooks/use-app-selector";
 
-import { doDeposit, doWithdraw } from "./features/wallet/wallet-slice";
+import {
+  doDeposit,
+  doWithdraw,
+  resetWallet,
+} from "./features/wallet/wallet-slice";
 
 import { Transaction } from "./entities/Transaction";
 
@@ -16,6 +20,8 @@ export const App = () => {
   return (
     <>
       <h1>myWallet</h1>
+      <button onClick={() => dispatch(resetWallet())} disabled={localStorage.getItem("wallet-storage") ? false : true}>Resetar carteira</button>
+      <br />
       <span>Saldo: {balance}</span>
       <button
         onClick={() => {
