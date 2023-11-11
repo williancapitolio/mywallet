@@ -7,11 +7,11 @@ export class Transaction implements TransactionInterface {
   readonly description: string;
   readonly createdAt: Date;
 
-  constructor(
-    value: number,
-    type: "withdraw" | "deposit",
-    description: string
-  ) {
+  constructor({
+    value,
+    type,
+    description,
+  }: Pick<Transaction, "value" | "type" | "description">) {
     this.id = Math.floor(Math.random() * 1000000);
     this.value = value;
     this.type = type;
