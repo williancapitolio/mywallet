@@ -3,19 +3,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Wallet } from "../../models/Wallet";
 import { Transaction } from "../../models/Transaction";
 
+import { getLocalStorageData } from "../../services/get-local-storage-data";
+
 const WALLET_STORAGE = "wallet-storage";
 
-const getInitialState = (): Wallet => {
-  const localStorageState = localStorage.getItem(WALLET_STORAGE);
-  if (!localStorageState)
-    return {
-      balance: 0,
-      transactions: [],
-    };
-  return JSON.parse(localStorageState);
+const DEFAULT_INITIAL_STATE: Wallet = {
+  balance: 0,
+  transactions: [],
 };
 
-const initialState: Wallet = getInitialState();
+const initialState = getLocalStorageData<Wallet>(WALLET_STORAGE, DEFAULT_INITIAL_STATE)
 
 export const walletSlice = createSlice({
   name: "wallet",
