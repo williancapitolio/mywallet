@@ -9,11 +9,18 @@ import {
 } from "./features/wallet/wallet-slice";
 
 import { Transaction } from "./entities/Transaction";
+import {
+  selectTotalDeposits,
+  selectTotalWithdraws,
+} from "./features/wallet/wallet-selectors";
 
 export const App = () => {
   const balance = useAppSelector((state) => state.wallet.balance);
   const transactions = useAppSelector((state) => state.wallet.transactions);
   const error = useAppSelector((state) => state.wallet.error);
+
+  const totalDeposits = useAppSelector(selectTotalDeposits);
+  const totalWithdraw = useAppSelector(selectTotalWithdraws);
 
   const dispatch = useDispatch();
 
@@ -28,6 +35,11 @@ export const App = () => {
       </button>
       <br />
       <span>Saldo: {balance}</span>
+      <br />
+      <span>Total de Depositos: {totalDeposits}</span>
+      <br />
+      <span>Total de Saques: {totalWithdraw}</span>
+      <br />
       <button
         onClick={() => {
           dispatch(
