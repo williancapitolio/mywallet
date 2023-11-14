@@ -24,20 +24,21 @@ export const walletSlice = createSlice({
   reducers: {
     doDeposit: (state, action: PayloadAction<Transaction>) => {
       state.balance += action.payload.value;
-      state.transactions.push(action.payload);
+      state.transactions = [...state.transactions, action.payload]
+      /* state.transactions.push(action.payload); */
       if (state.error) state.error = "";
       localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
     },
     doWithdraw: (state, action: PayloadAction<Transaction>) => {
       if (state.balance >= action.payload.value) {
         state.balance -= action.payload.value;
-        state.transactions.push(action.payload);
+        state.transactions = [...state.transactions, action.payload]
+        /* state.transactions.push(action.payload); */
         if (state.error) state.error = "";
-        localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
       } else {
         state.error = "Saldo insuficiente!";
-        localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
       }
+      localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
     },
     resetWallet: (state) => {
       state.balance = 0;
