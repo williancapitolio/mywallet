@@ -29,20 +29,18 @@ export const FormTransaction = () => {
 
   const handleSubmit = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
-    const id = Math.floor(Math.random() * 1000000);
-    const createdAt = new Date();
 
-    const data: Transaction = {
-      id,
+    const transactionData: Transaction = {
+      id: Math.floor(Math.random() * 1000000),
       value: +inputs.value,
       type: inputs.type,
       description: inputs.description,
-      createdAt,
+      createdAt: new Date(),
     };
 
-    if (data.type === "deposit") return dispatch(doDeposit(data));
+    if (transactionData.type === "deposit") return dispatch(doDeposit(transactionData));
 
-    if (data.type === "withdraw") return dispatch(doWithdraw(data));
+    if (transactionData.type === "withdraw") return dispatch(doWithdraw(transactionData));
 
     return;
   };
