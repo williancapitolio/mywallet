@@ -1,17 +1,19 @@
 import { useState } from "react";
 
-import { Transaction } from "../../entities/Transaction";
 import { useDispatch } from "react-redux";
-import { doDeposit } from "../../features/wallet/wallet-slice";
 
-type setInputsType = Pick<Transaction, "value" | "type" | "description">;
+import { doDeposit, doWithdraw } from "../../features/wallet/wallet-slice";
+
+import { Transaction } from "../../models/Transaction";
+
+type setInputsType = Omit<Transaction, "id" | "createdAt">;
 
 export const FormTransaction = () => {
   const dispatch = useDispatch();
 
   const [inputs, setInputs] = useState<setInputsType>({
     value: 0,
-    type: "deposit",
+    type: "",
     description: "",
   });
 
@@ -38,9 +40,9 @@ export const FormTransaction = () => {
       createdAt,
     };
 
-    if (data.type === "deposit") dispatch(doDeposit(data));
+    if (data.type === "deposit") return dispatch(doDeposit(data));
 
-    if (data.type === "withdraw") dispatch(doDeposit(data));
+    if (data.type === "withdraw") return dispatch(doWithdraw(data));
 
     return;
   };

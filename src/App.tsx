@@ -44,15 +44,19 @@ export const App = () => {
       <FormTransaction />
       <br />
 
-      {error && <span>{error}</span>}
-      <br />
+      {error && <span style={{ color: "red" }}>{error}</span>}
+      <br /><br />
 
       {transactions.length > 0 ? (
         transactions.map((transaction) => (
           <div key={transaction.id}>
-            <span>{transaction.value}</span><br />
-            <span>{transaction.description}</span><br />
-            <span>{transaction.type}</span><br /><br />
+            <span>R$ {transaction.value.toFixed(2)}</span>
+            <br />
+            <span>{transaction.description}</span>
+            <br />
+            <span>{transaction.type === "deposit" ? "Depósito" : "Saque"}</span>
+            <br />
+            <br />
           </div>
         ))
       ) : (

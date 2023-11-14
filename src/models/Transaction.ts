@@ -1,7 +1,7 @@
 export interface Transaction {
   id: number;
   value: number;
-  type: "withdraw" | "deposit";
+  type: "" | "deposit" | "withdraw";
   description: string;
   createdAt: Date;
 }
