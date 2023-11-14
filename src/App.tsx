@@ -2,17 +2,14 @@ import { useDispatch } from "react-redux";
 
 import { useAppSelector } from "./hooks/use-app-selector";
 
-import {
-  doDeposit,
-  doWithdraw,
-  resetWallet,
-} from "./features/wallet/wallet-slice";
+import { resetWallet } from "./features/wallet/wallet-slice";
 
-import { Transaction } from "./entities/Transaction";
 import {
   selectTotalDeposits,
   selectTotalWithdraws,
 } from "./features/wallet/wallet-selectors";
+
+import { FormTransaction } from "./components/FormTransaction";
 
 export const App = () => {
   const balance = useAppSelector((state) => state.wallet.balance);
@@ -34,46 +31,28 @@ export const App = () => {
         Resetar carteira
       </button>
       <br />
+
+      <br />
       <span>Saldo: {balance}</span>
+      <br />
       <br />
       <span>Total de Depositos: {totalDeposits}</span>
       <br />
       <span>Total de Saques: {totalWithdraw}</span>
       <br />
-      <button
-        onClick={() => {
-          dispatch(
-            doDeposit(
-              new Transaction({ value: 10, description: "aa", type: "deposit" })
-            )
-          );
-        }}
-      >
-        Depositar
-      </button>
-      <button
-        onClick={() => {
-          dispatch(
-            doWithdraw(
-              new Transaction({
-                value: 10,
-                description: "bb",
-                type: "withdraw",
-              })
-            )
-          );
-        }}
-      >
-        Sacar
-      </button>
+
+      <FormTransaction />
+      <br />
+
       {error && <span>{error}</span>}
       <br />
+
       {transactions.length > 0 ? (
         transactions.map((transaction) => (
           <div key={transaction.id}>
-            <span>{transaction.value}</span>
-            <span>{transaction.description}</span>
-            <span>{transaction.type}</span>
+            <span>{transaction.value}</span><br />
+            <span>{transaction.description}</span><br />
+            <span>{transaction.type}</span><br /><br />
           </div>
         ))
       ) : (
