@@ -11,14 +11,17 @@ type setInputsType = Omit<Transaction, "id">;
 export const FormTransaction = () => {
   const dispatch = useDispatch();
 
-  const [inputs, setInputs] = useState<setInputsType>({
+  const defaultInputs: setInputsType = {
     value: 0,
     type: "",
     description: "",
-  });
+  };
+
+  const [inputs, setInputs] = useState<setInputsType>(defaultInputs);
+
+  const [error, setError] = useState("");
 
   const handleChange = (ev: React.SyntheticEvent) => {
-    ev.preventDefault();
     setInputs((prev: setInputsType) => ({
       ...prev,
       [(ev.target as HTMLInputElement | HTMLSelectElement).name]: (
@@ -39,20 +42,43 @@ export const FormTransaction = () => {
       };
 
       const validateData = (data: Transaction) => {
-        if (data.value <= 0) throw new Error("VSF val");
-        if (data.type.length <= 0) throw new Error("VSF type");
-        if (data.description.length <= 0) throw new Error("VSF desc");
+        if (typeof data.value !== "number")
+          throw new Error("Valor deve ser um número!");
+
+        /* if (!data.value) throw new Error("Campo valor é obrigatório!"); */
+
+        if (data.value <= 0)
+          throw new Error("Valor não pode ser menor que R$ 0,00!");
+
+        if (data.value > 10000)
+          throw new Error("Valor não pode ser maior que R$ 10.000,00!");
+
+        if (!data.type)
+          throw new Error("Necessário escolher o tipo de transação!");
+
+        if (!data.description)
+          throw new Error("Campo descrição é obrigatório!");
+
+        if (data.description.length < 3)
+          throw new Error("Campo descrição no mínimo 3 caracteres!");
+
+        if (data.description.length > 50)
+          throw new Error("Campo descrição no máximo 50 caracteres!");
       };
 
       validateData(transactionData);
 
       if (transactionData.type === "deposit")
-        return dispatch(doDeposit(transactionData));
+        dispatch(doDeposit(transactionData));
 
       if (transactionData.type === "withdraw")
-        return dispatch(doWithdraw(transactionData));
-    } catch (error) {
-      console.log(error);
+        dispatch(doWithdraw(transactionData));
+
+      setError("");
+      return setInputs(defaultInputs);
+    } catch (err) {
+      if (err instanceof Error) setError(err.message);
+      else setError("Algo deu errado!");
     }
   };
 
@@ -61,10 +87,25 @@ export const FormTransaction = () => {
       <h2>Formulário</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="value">Valor</label>
-        <input type="text" name="value" id="value" onChange={handleChange} />
+        <input
+          type="number"
+          name="value"
+          id="value"
+          onChange={handleChange}
+          placeholder="Valor da transação..."
+          autoComplete="off"
+          step={10}
+          value={inputs.value}
+        />
 
-        <select name="type" id="type" onChange={handleChange}>
-          <option value="">Tipo de transação</option>
+        <label htmlFor="type">Tipo de transação</label>
+        <select
+          name="type"
+          id="type"
+          onChange={handleChange}
+          value={inputs.type}
+        >
+          <option value="">Selecione um opção</option>
           <option value="deposit">Depósito</option>
           <option value="withdraw">Saque</option>
         </select>
@@ -75,10 +116,14 @@ export const FormTransaction = () => {
           name="description"
           id="description"
           onChange={handleChange}
+          placeholder="Descrição da transação..."
+          autoComplete="off"
+          value={inputs.description}
         />
 
         <button type="submit">Adicionar</button>
       </form>
+      <div>{error && <span>{error}</span>}</div>
     </section>
   );
 };
