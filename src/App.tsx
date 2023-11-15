@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 
 import { useAppSelector } from "./hooks/use-app-selector";
 
-import { resetWallet } from "./features/wallet/wallet-slice";
+import { deleteTransaction, resetWallet } from "./features/wallet/wallet-slice";
 
 import {
   selectTotalDeposits,
@@ -68,6 +68,9 @@ export const App = () => {
             <br />
             <span>{transaction.type === "deposit" ? "Depósito" : "Saque"}</span>
             <br />
+            <button onClick={() => dispatch(deleteTransaction(transaction))}>
+              Exluir
+            </button>
             <br />
           </div>
         ))

@@ -40,7 +40,15 @@ export const walletSlice = createSlice({
       state.transactions = [];
       localStorage.removeItem(WALLET_STORAGE);
     },
+    deleteTransaction: (state, action: PayloadAction<Transaction>) => {
+      state.balance = state.balance - action.payload.value
+      state.transactions = state.transactions.filter(
+        (transaction) => transaction.id !== action.payload.id
+      );
+      localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
+    },
   },
 });
 
-export const { doDeposit, doWithdraw, resetWallet } = walletSlice.actions;
+export const { doDeposit, doWithdraw, resetWallet, deleteTransaction } =
+  walletSlice.actions;
