@@ -14,7 +14,6 @@ import { FormTransaction } from "./components/FormTransaction";
 export const App = () => {
   const balance = useAppSelector((state) => state.wallet.balance);
   const transactions = useAppSelector((state) => state.wallet.transactions);
-  const error = useAppSelector((state) => state.wallet.error);
 
   const totalDeposits = useAppSelector(selectTotalDeposits);
   const totalWithdraw = useAppSelector(selectTotalWithdraws);
@@ -43,9 +42,6 @@ export const App = () => {
 
       <FormTransaction />
       <br />
-
-      {error && <span style={{ color: "red" }}>{error}</span>}
-      <br /><br />
 
       {transactions.length > 0 ? (
         transactions.map((transaction) => (
