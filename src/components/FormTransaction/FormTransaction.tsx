@@ -4,12 +4,16 @@ import { useDispatch } from "react-redux";
 
 import { doDeposit, doWithdraw } from "../../features/wallet/wallet-slice";
 
+import { useAppSelector } from "../../hooks/use-app-selector";
+
 import { Transaction } from "../../models/Transaction";
 
 type setInputsType = Omit<Transaction, "id">;
 
 export const FormTransaction = () => {
   const dispatch = useDispatch();
+
+  const balance = useAppSelector((state) => state.wallet.balance);
 
   const defaultInputs: setInputsType = {
     value: 0,
@@ -45,8 +49,6 @@ export const FormTransaction = () => {
         if (typeof data.value !== "number")
           throw new Error("Valor deve ser um número!");
 
-        /* if (!data.value) throw new Error("Campo valor é obrigatório!"); */
-
         if (data.value <= 0)
           throw new Error("Valor não pode ser menor que R$ 0,00!");
 
@@ -55,6 +57,9 @@ export const FormTransaction = () => {
 
         if (!data.type)
           throw new Error("Necessário escolher o tipo de transação!");
+
+        if (balance < transactionData.value && data.type === "withdraw")
+          throw new Error("Saldo insuficiente!");
 
         if (!data.description)
           throw new Error("Campo descrição é obrigatório!");
