@@ -6,7 +6,7 @@ import { doDeposit, doWithdraw } from "../../features/wallet/wallet-slice";
 
 import { Transaction } from "../../models/Transaction";
 
-type setInputsType = Omit<Transaction, "id" | "createdAt">;
+type setInputsType = Omit<Transaction, "id">;
 
 export const FormTransaction = () => {
   const dispatch = useDispatch();
@@ -30,19 +30,30 @@ export const FormTransaction = () => {
   const handleSubmit = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
 
-    const transactionData: Transaction = {
-      id: Math.floor(Math.random() * 1000000),
-      value: +inputs.value,
-      type: inputs.type,
-      description: inputs.description,
-      createdAt: new Date(),
-    };
+    try {
+      const transactionData: Transaction = {
+        id: Math.floor(Math.random() * 1000000),
+        value: +inputs.value,
+        type: inputs.type,
+        description: inputs.description,
+      };
 
-    if (transactionData.type === "deposit") return dispatch(doDeposit(transactionData));
+      const validateData = (data: Transaction) => {
+        if (data.value <= 0) throw new Error("VSF val");
+        if (data.type.length <= 0) throw new Error("VSF type");
+        if (data.description.length <= 0) throw new Error("VSF desc");
+      };
 
-    if (transactionData.type === "withdraw") return dispatch(doWithdraw(transactionData));
+      validateData(transactionData);
 
-    return;
+      if (transactionData.type === "deposit")
+        return dispatch(doDeposit(transactionData));
+
+      if (transactionData.type === "withdraw")
+        return dispatch(doWithdraw(transactionData));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -66,7 +77,7 @@ export const FormTransaction = () => {
           onChange={handleChange}
         />
 
-        <button>Adicionar</button>
+        <button type="submit">Adicionar</button>
       </form>
     </section>
   );
