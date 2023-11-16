@@ -15,13 +15,11 @@ type WrapperProviderProps = {
 
 export const WrapperProvider = ({ children }: WrapperProviderProps) => {
   return (
-    <>
-      <Provider store={store}>
-        <ThemeProvider theme={Dark}>
-          <GlobalStyles />
-          {children}
-        </ThemeProvider>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <ThemeProvider theme={Dark}>
+        <GlobalStyles />
+        {children}
+      </ThemeProvider>
+    </Provider>
   );
 };
