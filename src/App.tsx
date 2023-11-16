@@ -5,27 +5,23 @@ import { useAppSelector } from "./hooks/use-app-selector";
 import { deleteTransaction, resetWallet } from "./features/wallet/wallet-slice";
 
 import {
+  selectBalance,
   selectTotalDeposits,
   selectTotalWithdraws,
 } from "./features/wallet/wallet-selectors";
 
+import { formatToBRL } from "./services/format-to-brl";
+
 import { FormTransaction } from "./components/FormTransaction";
 
 export const App = () => {
-  const balance = useAppSelector((state) =>
-    state.wallet.balance.toFixed(2).toString().replace(".", ",")
-  );
-
   const transactions = useAppSelector((state) => state.wallet.transactions);
 
-  const totalDeposits = useAppSelector(selectTotalDeposits)
-    .toFixed(2)
-    .toString()
-    .replace(".", ",");
-  const totalWithdraw = useAppSelector(selectTotalWithdraws)
-    .toFixed(2)
-    .toString()
-    .replace(".", ",");
+  const balance = formatToBRL(useAppSelector(selectBalance));
+
+  const totalDeposits = formatToBRL(useAppSelector(selectTotalDeposits));
+
+  const totalWithdraw = formatToBRL(useAppSelector(selectTotalWithdraws));
 
   const dispatch = useDispatch();
 
@@ -46,7 +42,7 @@ export const App = () => {
       <br />
 
       <br />
-      <span>Saldo: R$ {balance.toString().replace(".", ",")}</span>
+      <span>Saldo: R$ {balance}</span>
       <br />
       <br />
       <span>Total de Depositos: R$ {totalDeposits}</span>
@@ -60,9 +56,7 @@ export const App = () => {
       {transactions.length > 0 ? (
         transactions.map((transaction) => (
           <div key={transaction.id}>
-            <span>
-              R$ {transaction.value.toFixed(2).toString().replace(".", ",")}
-            </span>
+            <span>R$ {formatToBRL(transaction.value)}</span>
             <br />
             <span>{transaction.description}</span>
             <br />

@@ -7,13 +7,14 @@ import { doDeposit, doWithdraw } from "../features/wallet/wallet-slice";
 import { useAppSelector } from "../hooks/use-app-selector";
 
 import { Transaction } from "../models/Transaction";
+import { selectBalance } from "../features/wallet/wallet-selectors";
 
 type setInputsType = Omit<Transaction, "id">;
 
 export const useManageFormTransaction = () => {
-  const dispatch = useDispatch();
+  const balance = useAppSelector(selectBalance);
 
-  const balance = useAppSelector((state) => state.wallet.balance);
+  const dispatch = useDispatch();
 
   const defaultInputs: setInputsType = {
     value: 0,
@@ -53,7 +54,7 @@ export const useManageFormTransaction = () => {
           throw new Error("Valor não pode ser menor que R$ 0,00!");
 
         if (data.value > 10000)
-          throw new Error("Valor não pode ser maior que R$ 10.000,00!");
+          throw new Error("Valor não pode ser maior que R$ 10000,00!");
 
         if (!data.type)
           throw new Error("Necessário escolher o tipo de transação!");
@@ -80,7 +81,7 @@ export const useManageFormTransaction = () => {
         dispatch(doWithdraw(transactionData));
 
       setError("");
-      return setInputs(defaultInputs);
+      setInputs(defaultInputs);
     } catch (err) {
       if (err instanceof Error) setError(err.message);
       else setError("Algo deu errado!");
