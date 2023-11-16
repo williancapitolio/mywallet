@@ -40,7 +40,6 @@ export const App = () => {
         Resetar carteira
       </button>
       <br />
-
       <br />
       <span>Saldo: R$ {balance}</span>
       <br />

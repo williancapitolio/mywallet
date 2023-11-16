@@ -46,7 +46,9 @@ export const walletSlice = createSlice({
       state.transactions = state.transactions.filter(
         (transaction) => transaction.id !== action.payload.id
       );
-      localStorage.setItem(WALLET_STORAGE, JSON.stringify(state));
+      state.transactions.length > 0
+        ? localStorage.setItem(WALLET_STORAGE, JSON.stringify(state))
+        : localStorage.removeItem(WALLET_STORAGE);
     },
   },
 });
