@@ -4,8 +4,8 @@ import { store } from "../store";
 
 import { ThemeProvider } from "styled-components";
 
-import Dark from "../styles/themes/Dark";
-/* import Light from "../styles/themes/Light"; */
+/* import Dark from "../styles/themes/Dark"; */
+import Light from "../styles/themes/Light";
 
 import { GlobalStyles } from "../styles/Global";
 
@@ -16,7 +16,7 @@ type WrapperProviderProps = {
 export const WrapperProvider = ({ children }: WrapperProviderProps) => {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={Dark}>
+      <ThemeProvider theme={Light}>
         <GlobalStyles />
         {children}
       </ThemeProvider>
