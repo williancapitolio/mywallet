@@ -12,7 +12,7 @@ import {
 
 import { formatToBRL } from "./services/format-to-brl";
 
-import { FormTransaction } from "./components/FormTransaction";
+import { FormTransaction } from "./components/forms/FormTransaction";
 
 export const App = () => {
   const transactions = useAppSelector((state) => state.wallet.transactions);
