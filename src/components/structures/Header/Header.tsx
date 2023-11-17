@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <header>
       <div>
-        <p>myWallet</p>
+        <h1>myWallet</h1>
         <Theme />
       </div>
     </header>

@@ -6,7 +6,9 @@ export const GlobalStyles = createGlobalStyle`
   padding: 0;
   box-sizing: border-box;
   color: ${(props) => props.theme.colors.text.primary};
-  font-size: 1rem
+  font-size: 1rem;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 body {

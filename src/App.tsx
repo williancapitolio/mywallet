@@ -13,7 +13,6 @@ import {
 import { formatToBRL } from "./services/format-to-brl";
 
 import { FormTransaction } from "./components/forms/FormTransaction";
-import { toggleTheme } from "./features/theme/theme-slice";
 import { Header } from "./components/structures/Header";
 
 export const App = () => {
@@ -32,9 +31,6 @@ export const App = () => {
   return (
     <>
       <Header />
-      <p>{theme}</p>
-      <button onClick={() => dispatch(toggleTheme())}>Trocar tema</button>
-      <h1>myWallet</h1>
       <button
         onClick={() => dispatch(resetWallet())}
         disabled={localStorage.getItem("wallet-storage") ? false : true}
