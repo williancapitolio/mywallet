@@ -14,6 +14,7 @@ import { formatToBRL } from "./services/format-to-brl";
 
 import { FormTransaction } from "./components/forms/FormTransaction";
 import { toggleTheme } from "./features/theme/theme-slice";
+import { Header } from "./components/structures/Header";
 
 export const App = () => {
   const transactions = useAppSelector((state) => state.wallet.transactions);
@@ -30,6 +31,7 @@ export const App = () => {
   console.log(theme);
   return (
     <>
+      <Header />
       <p>{theme}</p>
       <button onClick={() => dispatch(toggleTheme())}>Trocar tema</button>
       <h1>myWallet</h1>
