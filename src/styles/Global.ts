@@ -13,16 +13,13 @@ export const GlobalStyles = createGlobalStyle`
 
 body {
   background-color: ${(props) => props.theme.colors.background.primary};
+}
+
+div#root {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-}
-
-div#root {
-  width: 100%;
-  max-width: 64rem;
-  padding: .5rem 1rem;
 }
 
 a {
