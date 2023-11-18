@@ -4,7 +4,7 @@ import { toggleTheme } from "../../../features/theme/theme-slice";
 
 import { useAppSelector } from "../../../hooks/use-app-selector";
 
-import { BiSolidMoon, BiSun } from "react-icons/bi";
+import { BsMoonFill, BsSun } from "react-icons/bs";
 
 import * as S from "./ThemeStyles";
 
@@ -17,11 +17,11 @@ export const Theme = () => {
     <>
       {theme === "dark" ? (
         <S.Button onClick={() => dispatch(toggleTheme())}>
-          <BiSun size="sm" name="toggle-theme" />
+          <BsSun className="btn-icon" />
         </S.Button>
       ) : (
         <S.Button onClick={() => dispatch(toggleTheme())}>
-          <BiSolidMoon size="sm" name="toggle-theme" />
+          <BsMoonFill className="btn-icon" />
         </S.Button>
       )}
     </>

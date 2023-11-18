@@ -18,6 +18,13 @@ import { formatToBRL } from "../../../services/format-to-brl";
 import { FormTransaction } from "../../forms/FormTransaction";
 
 import * as S from "./MainStyles";
+import { CardValue } from "../../cards/CardValue";
+
+import {
+  BsArrowDownCircle,
+  BsArrowUpCircle,
+  BsCurrencyDollar,
+} from "react-icons/bs";
 
 export const Main = () => {
   const dispatch = useDispatch();
@@ -30,32 +37,39 @@ export const Main = () => {
 
   const totalWithdraw = formatToBRL(useAppSelector(selectTotalWithdraws));
 
+  const cardsData = [
+    {
+      title: "Saldo",
+      icon: <BsCurrencyDollar className="btn-icon" />,
+      value: balance,
+    },
+    {
+      title: "Entradas",
+      icon: <BsArrowUpCircle className="btn-icon" />,
+      value: totalDeposits,
+    },
+    {
+      title: "Saídas",
+      icon: <BsArrowDownCircle className="btn-icon" />,
+      value: totalWithdraw,
+    },
+  ];
+
   return (
     <S.Main>
-      <button
-        onClick={() => dispatch(resetWallet())}
-        disabled={localStorage.getItem("wallet-storage") ? false : true}
-        style={{
-          visibility: localStorage.getItem("wallet-storage")
-            ? "visible"
-            : "hidden",
-        }}
-      >
-        Resetar carteira
-      </button>
-      <br />
-      <br />
-      <span>Saldo: R$ {balance}</span>
-      <br />
-      <br />
-      <span>Total de Depositos: R$ {totalDeposits}</span>
-      <br />
-      <span>Total de Saques: R$ {totalWithdraw}</span>
-      <br />
+      <S.ContentCards>
+        {cardsData.map((items, index) => (
+          <CardValue
+            key={index}
+            title={items.title}
+            icon={items.icon}
+            value={items.value}
+          />
+        ))}
+      </S.ContentCards>
 
       <FormTransaction />
       <br />
-
       {transactions.length > 0 ? (
         transactions.map((transaction) => (
           <div key={transaction.id}>
@@ -74,6 +88,18 @@ export const Main = () => {
       ) : (
         <span>Nenhuma transação realizada!</span>
       )}
+
+      <button
+        onClick={() => dispatch(resetWallet())}
+        disabled={localStorage.getItem("wallet-storage") ? false : true}
+        style={{
+          visibility: localStorage.getItem("wallet-storage")
+            ? "visible"
+            : "hidden",
+        }}
+      >
+        Resetar carteira
+      </button>
     </S.Main>
   );
 };

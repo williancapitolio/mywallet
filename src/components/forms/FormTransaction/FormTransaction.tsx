@@ -1,51 +1,56 @@
 import { useManageFormTransaction } from "../../../hooks/use-manage-form-transaction";
 
+import * as S from "./FormTransactionStyles";
+
 export const FormTransaction = () => {
   const { handleSubmit, handleChange, inputs, error } =
     useManageFormTransaction();
 
   return (
-    <section>
-      <h2>Formulário</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="value">Valor</label>
-        <input
-          type="number"
-          name="value"
-          id="value"
-          onChange={handleChange}
-          placeholder="Valor da transação..."
-          autoComplete="off"
-          step={10}
-          value={inputs.value}
-        />
+    <S.Wrapper>
+      <S.Form onSubmit={handleSubmit}>
+        <S.Field>
+          <S.Label htmlFor="value">Valor</S.Label>
+          <S.Input
+            type="number"
+            name="value"
+            id="value"
+            onChange={handleChange}
+            autoComplete="off"
+            step={10}
+            value={inputs.value}
+          />
+        </S.Field>
 
-        <label htmlFor="type">Tipo de transação</label>
-        <select
-          name="type"
-          id="type"
-          onChange={handleChange}
-          value={inputs.type}
-        >
-          <option value="">Selecione um opção</option>
-          <option value="deposit">Depósito</option>
-          <option value="withdraw">Saque</option>
-        </select>
+        <S.Field>
+          <S.Label htmlFor="type">Tipo de transação</S.Label>
+          <S.Select
+            name="type"
+            id="type"
+            onChange={handleChange}
+            value={inputs.type}
+          >
+            <S.Option value="" disabled selected>Selecione um opção</S.Option>
+            <S.Option value="deposit">Depósito</S.Option>
+            <S.Option value="withdraw">Saque</S.Option>
+          </S.Select>
+        </S.Field>
 
-        <label htmlFor="description">Descrição</label>
-        <input
-          type="text"
-          name="description"
-          id="description"
-          onChange={handleChange}
-          placeholder="Descrição da transação..."
-          autoComplete="off"
-          value={inputs.description}
-        />
+        <S.Field>
+          <S.Label htmlFor="description">Descrição</S.Label>
+          <S.Input
+            type="text"
+            name="description"
+            id="description"
+            onChange={handleChange}
+            autoComplete="off"
+            value={inputs.description}
+          />
+        </S.Field>
 
-        <button type="submit">Adicionar</button>
-      </form>
-      <div>{error && <span>{error}</span>}</div>
-    </section>
+        <S.Submit type="submit">Adicionar</S.Submit>
+      </S.Form>
+      {error && <S.ErrorMsg>{error}</S.ErrorMsg>}
+    </S.Wrapper>
   );
 };

@@ -51,7 +51,7 @@ export const useManageFormTransaction = () => {
           throw new Error("Valor deve ser um número!");
 
         if (data.value <= 0)
-          throw new Error("Valor não pode ser menor que R$ 0,00!");
+          throw new Error("Valor não pode ser menor ou igual a R$ 0,00!");
 
         if (data.value > 10000)
           throw new Error("Valor não pode ser maior que R$ 10000,00!");
