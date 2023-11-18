@@ -1,4 +1,5 @@
 import { useManageFormTransaction } from "../../../hooks/use-manage-form-transaction";
+import { Submit } from "../../buttons/Submit";
 
 import * as S from "./FormTransactionStyles";
 
@@ -30,7 +31,9 @@ export const FormTransaction = () => {
             onChange={handleChange}
             value={inputs.type}
           >
-            <S.Option value="" disabled selected>Selecione um opção</S.Option>
+            <S.Option value="" disabled selected>
+              Selecione um opção
+            </S.Option>
             <S.Option value="deposit">Depósito</S.Option>
             <S.Option value="withdraw">Saque</S.Option>
           </S.Select>
@@ -48,7 +51,7 @@ export const FormTransaction = () => {
           />
         </S.Field>
 
-        <S.Submit type="submit">Adicionar</S.Submit>
+        <Submit text="Adicionar" />
       </S.Form>
       {error && <S.ErrorMsg>{error}</S.ErrorMsg>}
     </S.Wrapper>
