@@ -8,14 +8,13 @@ export const Submit = styled.button`
   text-transform: uppercase;
   font-size: 0.75rem;
   font-weight: 700;
-  border: 0.125rem solid transparent;
+  border: 0.125rem solid ${(props) => props.theme.colors.text.primary};
 
   &:focus {
     outline: none;
   }
 
   &:hover {
-    border: 0.125rem solid ${(props) => props.theme.colors.button.ok};
-    background-color: ${(props) => props.theme.colors.background.primary};
+    opacity: 0.85;
   }
 `;

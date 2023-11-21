@@ -29,9 +29,8 @@ export const useManageFormTransaction = () => {
   const handleChange = (ev: React.SyntheticEvent) => {
     setInputs((prev: setInputsType) => ({
       ...prev,
-      [(ev.target as HTMLInputElement | HTMLSelectElement).name]: (
-        ev.target as HTMLInputElement
-      ).value,
+      [(ev.target as HTMLInputElement).name]: (ev.target as HTMLInputElement)
+        .value,
     }));
   };
 

@@ -40,21 +40,54 @@ export const Input = styled.input`
   }
 `;
 
-export const Select = styled.select`
-  background-color: ${(props) => props.theme.colors.background.primary};
-  padding: 0.5rem;
-  border: 0.125rem solid ${(props) => props.theme.colors.text.primary};
-  border-radius: 0.25rem;
+export const Radios = styled.section`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
-  &:focus {
-    outline: none;
-    border: 0.125rem solid ${(props) => props.theme.colors.button.ok};
+export const RadioContainer = styled.div`
+  position: relative;
+  height: 3rem;
+  width: 6rem;
+  margin: 0.5rem;
+`;
+
+export const RadioInput = styled.input`
+  cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+
+  &:checked + .radio-tile {
+    background-color: ${(props) => props.theme.colors.button.ok};
+  }
+
+  &:hover + .radio-tile {
+    opacity: 0.85;
   }
 `;
 
-export const Option = styled.option`
-  background-color: ${(props) => props.theme.colors.background.primary};
-  padding: 0.5rem;
+export const RadioTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: 0.125rem solid ${(props) => props.theme.colors.text.primary};
+  border-radius: 0.5rem;
+`;
+
+export const RadioLabel = styled.label`
+  cursor: pointer;
+  color: ${(props) => props.theme.colors.text.primary};
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
 `;
 
 export const ErrorMsg = styled.span``;

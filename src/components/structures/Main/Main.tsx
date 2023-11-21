@@ -45,12 +45,12 @@ export const Main = () => {
     },
     {
       title: "Entradas",
-      icon: <BsArrowUpCircle className="btn-icon" />,
+      icon: <BsArrowDownCircle className="btn-icon" />,
       value: totalDeposits,
     },
     {
       title: "Saídas",
-      icon: <BsArrowDownCircle className="btn-icon" />,
+      icon: <BsArrowUpCircle className="btn-icon" />,
       value: totalWithdraw,
     },
   ];
