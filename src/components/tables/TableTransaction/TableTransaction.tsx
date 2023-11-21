@@ -40,7 +40,9 @@ export const TableTransaction = () => {
           ))
         ) : (
           <S.TableRow>
-            <S.TableData colSpan={4}>Nenhuma transação realizada!</S.TableData>
+            <S.TableData style={{ width: "100%" }}>
+              Nenhuma transação realizada!
+            </S.TableData>
           </S.TableRow>
         )}
       </S.Table>

@@ -70,7 +70,6 @@ export const Main = () => {
 
       <button
         onClick={() => dispatch(resetWallet())}
-        disabled={localStorage.getItem("wallet-storage") ? false : true}
         style={{
           visibility: localStorage.getItem("wallet-storage")
             ? "visible"

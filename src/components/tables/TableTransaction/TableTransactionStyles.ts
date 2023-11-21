@@ -2,15 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.section`
   padding-inline: 1rem;
-  position: relative;
   padding-block: 1.5rem;
 `;
 
 export const Table = styled.table`
-  /* display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between; */
   width: 100%;
   background-color: ${(props) => props.theme.colors.background.primary};
   box-shadow: ${(props) => props.theme.colors.boxShadow};
