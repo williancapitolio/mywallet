@@ -8,10 +8,7 @@ import {
   selectTotalWithdraws,
 } from "../../../features/wallet/wallet-selectors";
 
-import {
-  deleteTransaction,
-  resetWallet,
-} from "../../../features/wallet/wallet-slice";
+import { resetWallet } from "../../../features/wallet/wallet-slice";
 
 import { formatToBRL } from "../../../services/format-to-brl";
 
@@ -25,11 +22,10 @@ import {
   BsArrowUpCircle,
   BsCurrencyDollar,
 } from "react-icons/bs";
+import { TableTransaction } from "../../tables/TableTransaction";
 
 export const Main = () => {
   const dispatch = useDispatch();
-
-  const transactions = useAppSelector((state) => state.wallet.transactions);
 
   const balance = formatToBRL(useAppSelector(selectBalance));
 
@@ -69,25 +65,8 @@ export const Main = () => {
       </S.ContentCards>
 
       <FormTransaction />
-      <br />
-      {transactions.length > 0 ? (
-        transactions.map((transaction) => (
-          <div key={transaction.id}>
-            <span>R$ {formatToBRL(transaction.value)}</span>
-            <br />
-            <span>{transaction.description}</span>
-            <br />
-            <span>{transaction.type === "deposit" ? "Depósito" : "Saque"}</span>
-            <br />
-            <button onClick={() => dispatch(deleteTransaction(transaction))}>
-              Exluir
-            </button>
-            <br />
-          </div>
-        ))
-      ) : (
-        <span>Nenhuma transação realizada!</span>
-      )}
+
+      <TableTransaction />
 
       <button
         onClick={() => dispatch(resetWallet())}

@@ -24,20 +24,6 @@ export const FormTransaction = () => {
         </S.Field>
 
         <S.Field>
-          {/* <S.Label htmlFor="type">Tipo de transação</S.Label>
-          <S.Select
-            name="type"
-            id="type"
-            onChange={handleChange}
-            value={inputs.type}
-          >
-            <S.Option value="" disabled selected>
-              Selecione um opção
-            </S.Option>
-            <S.Option value="deposit">Depósito</S.Option>
-            <S.Option value="withdraw">Saque</S.Option>
-          </S.Select> */}
-
           <S.Radios>
             <S.RadioContainer>
               <S.RadioInput
@@ -47,6 +33,7 @@ export const FormTransaction = () => {
                 value="deposit"
                 onChange={handleChange}
               />
+
               <S.RadioTitle className="radio-tile">
                 <S.RadioLabel htmlFor="deposit">Depósito</S.RadioLabel>
               </S.RadioTitle>
@@ -60,6 +47,7 @@ export const FormTransaction = () => {
                 value="withdraw"
                 onChange={handleChange}
               />
+
               <S.RadioTitle className="radio-tile">
                 <S.RadioLabel htmlFor="withdraw">Saque</S.RadioLabel>
               </S.RadioTitle>
