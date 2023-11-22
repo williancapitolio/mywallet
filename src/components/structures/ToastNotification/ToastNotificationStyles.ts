@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
   bottom: 0;
   right: 0;
   margin: 1rem;
+  box-shadow: ${(props) => props.theme.colors.boxShadow};
 `;
 
 export const Icon = styled.span`
