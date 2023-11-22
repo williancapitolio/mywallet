@@ -12,6 +12,7 @@ import * as S from "./TableTransactionStyles";
 
 export const TableTransaction = () => {
   const transactions = useAppSelector((state) => state.wallet.transactions);
+
   const dispatch = useDispatch();
 
   return (

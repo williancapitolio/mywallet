@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
@@ -26,6 +26,9 @@ export const useManageFormTransaction = () => {
   const [inputs, setInputs] = useState<setInputsType>(defaultInputs);
 
   const [error, setError] = useState("");
+
+  const radioDepositRef = useRef<HTMLInputElement>();
+  const radioWithdrawRef = useRef<HTMLInputElement>();
 
   const handleChange = (ev: React.SyntheticEvent) => {
     setInputs((prev: setInputsType) => ({
@@ -82,11 +85,21 @@ export const useManageFormTransaction = () => {
 
       setError("");
       setInputs(defaultInputs);
+
+      radioDepositRef.current!.checked = false;
+      radioWithdrawRef.current!.checked = false;
     } catch (err) {
       if (err instanceof Error) setError(err.message);
       else setError("Algo deu errado!");
     }
   };
 
-  return { handleSubmit, handleChange, inputs, error };
+  return {
+    handleSubmit,
+    handleChange,
+    inputs,
+    error,
+    radioDepositRef,
+    radioWithdrawRef,
+  };
 };

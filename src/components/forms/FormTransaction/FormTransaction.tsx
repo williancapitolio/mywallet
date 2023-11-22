@@ -1,12 +1,20 @@
 import { useManageFormTransaction } from "../../../hooks/use-manage-form-transaction";
 
+import { ToastNotification } from "../../structures/ToastNotification";
+
 import { Submit } from "../../buttons/Submit";
 
 import * as S from "./FormTransactionStyles";
 
 export const FormTransaction = () => {
-  const { handleSubmit, handleChange, inputs, error } =
-    useManageFormTransaction();
+  const {
+    handleSubmit,
+    handleChange,
+    inputs,
+    error,
+    radioDepositRef,
+    radioWithdrawRef,
+  } = useManageFormTransaction();
 
   return (
     <S.Wrapper>
@@ -33,6 +41,8 @@ export const FormTransaction = () => {
                 id="deposit"
                 value="deposit"
                 onChange={handleChange}
+                ref={radioDepositRef as React.RefObject<HTMLInputElement>}
+                defaultChecked={false}
               />
 
               <S.RadioTitle className="radio-tile">
@@ -47,6 +57,8 @@ export const FormTransaction = () => {
                 id="withdraw"
                 value="withdraw"
                 onChange={handleChange}
+                ref={radioWithdrawRef as React.RefObject<HTMLInputElement>}
+                defaultChecked={false}
               />
 
               <S.RadioTitle className="radio-tile">
@@ -70,7 +82,7 @@ export const FormTransaction = () => {
 
         <Submit text="Adicionar" />
       </S.Form>
-      {error && <S.ErrorMsg>{error}</S.ErrorMsg>}
+      {error && <ToastNotification error={error} />}
     </S.Wrapper>
   );
 };
