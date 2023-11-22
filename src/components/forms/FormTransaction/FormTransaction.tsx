@@ -4,12 +4,15 @@ import { ToastNotification } from "../../structures/ToastNotification";
 
 import { Submit } from "../../buttons/Submit";
 
+import { BsXCircle } from "react-icons/bs";
+
 import * as S from "./FormTransactionStyles";
 
 export const FormTransaction = () => {
   const {
     handleSubmit,
     handleChange,
+    handleError,
     inputs,
     error,
     radioDepositRef,
@@ -82,7 +85,14 @@ export const FormTransaction = () => {
 
         <Submit text="Adicionar" />
       </S.Form>
-      {error && <ToastNotification error={error} />}
+      {error && (
+        <ToastNotification
+          icon={<BsXCircle className="btn-icon" />}
+          type="Erro!"
+          message={error}
+          closeToastNotification={handleError}
+        />
+      )}
     </S.Wrapper>
   );
 };

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
@@ -37,6 +37,18 @@ export const useManageFormTransaction = () => {
         .value,
     }));
   };
+
+  const handleError = () => {
+    setError("");
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleError();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [error]);
 
   const handleSubmit = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
@@ -83,7 +95,7 @@ export const useManageFormTransaction = () => {
       if (transactionData.type === "withdraw")
         dispatch(doWithdraw(transactionData));
 
-      setError("");
+      handleError();
       setInputs(defaultInputs);
 
       radioDepositRef.current!.checked = false;
@@ -97,6 +109,7 @@ export const useManageFormTransaction = () => {
   return {
     handleSubmit,
     handleChange,
+    handleError,
     inputs,
     error,
     radioDepositRef,
