@@ -14,7 +14,9 @@ export default {
       top: "#1a2634",
     },
     button: {
-      ok: "#33ae9a",
+      ok: "#207567",
+      danger: "#b80f0a",
+      warning: "#8d4004",
     },
     boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
   },

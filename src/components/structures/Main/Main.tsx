@@ -1,32 +1,30 @@
-import { useDispatch } from "react-redux";
-
-import { useAppSelector } from "../../../hooks/use-app-selector";
-
 import {
   selectBalance,
   selectTotalDeposits,
   selectTotalWithdraws,
 } from "../../../features/wallet/wallet-selectors";
 
-import { resetWallet } from "../../../features/wallet/wallet-slice";
+import { useAppSelector } from "../../../hooks/use-app-selector";
 
 import { formatToBRL } from "../../../services/format-to-brl";
 
+import { Reset } from "../../buttons/Reset";
+
+import { CardValue } from "../../cards/CardValue";
+
 import { FormTransaction } from "../../forms/FormTransaction";
 
-import * as S from "./MainStyles";
-import { CardValue } from "../../cards/CardValue";
+import { TableTransaction } from "../../tables/TableTransaction";
 
 import {
   BsArrowDownCircle,
   BsArrowUpCircle,
   BsCurrencyDollar,
 } from "react-icons/bs";
-import { TableTransaction } from "../../tables/TableTransaction";
+
+import * as S from "./MainStyles";
 
 export const Main = () => {
-  const dispatch = useDispatch();
-
   const balance = formatToBRL(useAppSelector(selectBalance));
 
   const totalDeposits = formatToBRL(useAppSelector(selectTotalDeposits));
@@ -40,12 +38,12 @@ export const Main = () => {
       value: balance,
     },
     {
-      title: "Entradas",
+      title: "Depósitos",
       icon: <BsArrowDownCircle className="btn-icon" />,
       value: totalDeposits,
     },
     {
-      title: "Saídas",
+      title: "Saques",
       icon: <BsArrowUpCircle className="btn-icon" />,
       value: totalWithdraw,
     },
@@ -68,16 +66,7 @@ export const Main = () => {
 
       <TableTransaction />
 
-      <button
-        onClick={() => dispatch(resetWallet())}
-        style={{
-          visibility: localStorage.getItem("wallet-storage")
-            ? "visible"
-            : "hidden",
-        }}
-      >
-        Resetar carteira
-      </button>
+      <Reset />
     </S.Main>
   );
 };

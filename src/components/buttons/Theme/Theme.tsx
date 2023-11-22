@@ -27,5 +27,3 @@ export const Theme = () => {
     </>
   );
 };
-
-//xs, sm, md, lg

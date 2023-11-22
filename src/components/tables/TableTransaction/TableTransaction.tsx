@@ -6,6 +6,8 @@ import { deleteTransaction } from "../../../features/wallet/wallet-slice";
 
 import { formatToBRL } from "../../../services/format-to-brl";
 
+import { Delete } from "../../buttons/Delete";
+
 import * as S from "./TableTransactionStyles";
 
 export const TableTransaction = () => {
@@ -30,11 +32,9 @@ export const TableTransaction = () => {
               </S.TableData>
               <S.TableData>{transaction.description}</S.TableData>
               <S.TableData>
-                <button
-                  onClick={() => dispatch(deleteTransaction(transaction))}
-                >
-                  Excluir
-                </button>
+                <Delete
+                  clickAction={() => dispatch(deleteTransaction(transaction))}
+                />
               </S.TableData>
             </S.TableRow>
           ))

@@ -15,6 +15,8 @@ export default {
     },
     button: {
       ok: "#33ae9a",
+      danger: "#ff2800",
+      warning: "#fc6a03",
     },
     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
   },

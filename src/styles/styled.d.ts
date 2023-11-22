@@ -18,6 +18,8 @@ declare module "styled-components" {
       };
       button: {
         ok: string;
+        danger: string;
+        warning: string;
       };
       boxShadow: string;
     };

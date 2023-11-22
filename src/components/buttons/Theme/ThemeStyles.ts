@@ -14,10 +14,11 @@ export const Button = styled.button`
   top: 0;
   right: 0;
   margin: 1rem 1rem 0 0;
+  border-radius: 2rem;
+  outline: none;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.background.tertiary};
-    border-radius: 2rem;
   }
 
   .btn-icon {

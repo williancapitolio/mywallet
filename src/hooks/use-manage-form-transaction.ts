@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 
 import { doDeposit, doWithdraw } from "../features/wallet/wallet-slice";
 
+import { selectBalance } from "../features/wallet/wallet-selectors";
+
 import { useAppSelector } from "../hooks/use-app-selector";
 
 import { Transaction } from "../models/Transaction";
-import { selectBalance } from "../features/wallet/wallet-selectors";
 
 type setInputsType = Omit<Transaction, "id">;
 
@@ -52,8 +53,8 @@ export const useManageFormTransaction = () => {
         if (data.value <= 0)
           throw new Error("Valor não pode ser menor ou igual a R$ 0,00!");
 
-        if (data.value > 10000)
-          throw new Error("Valor não pode ser maior que R$ 10000,00!");
+        if (data.value > 100000)
+          throw new Error("Valor não pode ser maior que R$ 100000,00!");
 
         if (!data.type)
           throw new Error("Necessário escolher o tipo de transação!");
