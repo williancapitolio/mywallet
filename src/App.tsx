@@ -1,11 +1,5 @@
-import { Header } from "./components/structures/Header";
-import { Main } from "./components/structures/Main";
+import { Layout } from "./pages/Layout";
 
 export const App = () => {
-  return (
-    <>
-      <Header />
-      <Main />
-    </>
-  );
+  return <Layout />;
 };

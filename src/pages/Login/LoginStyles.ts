@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
+export const Login = styled.section`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.theme.colors.background.top};
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 13.5rem;
 `;
 
 export const Wrapper = styled.div`
@@ -22,14 +22,4 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-`;
-
-export const Hello = styled.p`
-  font-size: 1.5rem;
-  padding-bottom: 0.5rem;
-  font-weight: 700;
-`;
-
-export const Greetings = styled.span`
-  font-size: 0.85rem;
 `;
