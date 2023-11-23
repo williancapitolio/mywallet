@@ -1,23 +1,25 @@
 import { useAppSelector } from "../../hooks/use-app-selector";
 
+import { Login } from "../Login";
+
 import { Header } from "../../components/structures/Header";
 import { Main } from "../../components/structures/Main";
-
-import { Login } from "../Login";
+import { FormUser } from "../../components/forms/FormUser";
 
 export const Layout = () => {
   const name = useAppSelector((state) => state.user.name);
 
   return (
     <>
-      {name ? (
+      {!name ? (
+        <Login />
+      ) : (
         <>
           <Header />
           <Main />
         </>
-      ) : (
-        <Login />
       )}
+      <FormUser />
     </>
   );
 };
