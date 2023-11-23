@@ -12,6 +12,10 @@ export const Card = styled.section`
   justify-content: center;
   gap: 1rem;
   position: relative;
+
+  @media (max-width: 48rem) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.h2`
@@ -34,5 +38,11 @@ export const Content = styled.span`
   font-size: 1.75rem;
   font-weight: 700;
   margin-top: 1rem;
+  word-break: break-all;
+  text-align: center;
+  padding-inline: 1rem;
 
+  @media (max-width: 20rem) {
+    font-size: 1.5rem;
+  }
 `;

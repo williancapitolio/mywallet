@@ -43,7 +43,7 @@ export const Main = () => {
       value: totalDeposits,
     },
     {
-      title: "Saques",
+      title: "Retiradas",
       icon: <BsArrowUpCircle className="btn-icon" />,
       value: totalWithdraw,
     },

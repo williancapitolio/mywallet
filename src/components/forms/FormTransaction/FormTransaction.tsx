@@ -30,12 +30,12 @@ export const FormTransaction = () => {
             id="value"
             onChange={handleChange}
             autoComplete="off"
-            step={10}
             value={inputs.value}
           />
         </S.Field>
 
         <S.Field>
+          <S.Label htmlFor="type">Tipo</S.Label>
           <S.Radios>
             <S.RadioContainer>
               <S.RadioInput
@@ -65,7 +65,7 @@ export const FormTransaction = () => {
               />
 
               <S.RadioTitle className="radio-tile">
-                <S.RadioLabel htmlFor="withdraw">Saque</S.RadioLabel>
+                <S.RadioLabel htmlFor="withdraw">Retirada</S.RadioLabel>
               </S.RadioTitle>
             </S.RadioContainer>
           </S.Radios>

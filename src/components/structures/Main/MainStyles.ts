@@ -5,7 +5,11 @@ export const Main = styled.main`
   max-width: 64rem;
   margin: 0 1rem;
   position: relative;
-  padding-top: 5.5rem; //temporário
+  padding-top: 5.5rem;
+
+  @media (max-width: 48rem) {
+    padding-top: 0;
+  }
 `;
 
 export const ContentCards = styled.section`
@@ -19,5 +23,11 @@ export const ContentCards = styled.section`
 
   .btn-icon {
     font-size: 1.5rem;
+  }
+
+  @media (max-width: 48rem) {
+    flex-direction: column;
+    position: relative;
+    gap: 1rem;
   }
 `;

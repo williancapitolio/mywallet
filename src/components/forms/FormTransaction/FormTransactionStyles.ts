@@ -3,17 +3,27 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   padding-inline: 1rem;
   position: relative;
+
+  @media (max-width: 48rem) {
+    top: -2rem;
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   background-color: ${(props) => props.theme.colors.background.primary};
   box-shadow: ${(props) => props.theme.colors.boxShadow};
   border-radius: 0.5rem;
   padding: 1rem;
+
+  @media (max-width: 48rem) {
+    gap: 1rem;
+    flex-direction: column;
+  }
 `;
 
 export const Field = styled.div`
@@ -21,6 +31,10 @@ export const Field = styled.div`
   flex-direction: column;
   width: 25%;
   gap: 0.5rem;
+
+  @media (max-width: 48rem) {
+    width: 100%;
+  }
 `;
 
 export const Label = styled.label`
@@ -44,13 +58,15 @@ export const Radios = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  position: relative;
+  gap: 1rem;
 `;
 
 export const RadioContainer = styled.div`
   position: relative;
-  height: 3rem;
-  width: 6rem;
-  margin: 0.5rem;
+  height: 2.4375rem;
+  width: 100%;
 `;
 
 export const RadioInput = styled.input`
@@ -77,9 +93,10 @@ export const RadioTitle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 4.375rem;
   height: 100%;
   border: 0.125rem solid ${(props) => props.theme.colors.text.primary};
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 `;
 
 export const RadioLabel = styled.label`
@@ -89,5 +106,3 @@ export const RadioLabel = styled.label`
   font-weight: 600;
   text-transform: uppercase;
 `;
-
-export const ErrorMsg = styled.span``;

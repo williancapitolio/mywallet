@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
   right: 0;
   margin: 1rem;
   box-shadow: ${(props) => props.theme.colors.boxShadow};
+  z-index: 1;
 `;
 
 export const Icon = styled.span`
