@@ -1,13 +1,16 @@
 import { useDispatch } from "react-redux";
+
+import { resetUser, toggleModal } from "../../../features/user/user-slice";
+import { resetWallet } from "../../../features/wallet/wallet-slice";
+
 import { useAppSelector } from "../../../hooks/use-app-selector";
 
 import { Navbar } from "../Navbar";
+import { IconButton } from "../../buttons/IconButton";
+
+import { BsPencilSquare, BsPersonX } from "react-icons/bs";
 
 import * as S from "./HeaderStyles";
-import { resetUser, toggleModal } from "../../../features/user/user-slice";
-import { IconButton } from "../../buttons/IconButton";
-import { BsPencilSquare, BsPersonX } from "react-icons/bs";
-import { resetWallet } from "../../../features/wallet/wallet-slice";
 
 export const Header = () => {
   const name = useAppSelector((state) => state.user.name);
