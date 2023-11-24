@@ -1,6 +1,6 @@
 import { Structure } from "../Structure";
 
-import { ModalForm } from "../../components/modals/ModalForm";
+import { ModalForm } from "../../modals/ModalForm";
 
 export const Layout = () => {
   return (

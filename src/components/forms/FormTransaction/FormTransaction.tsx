@@ -1,8 +1,8 @@
 import { useManageFormTransaction } from "../../../hooks/use-manage-form-transaction";
 
-import { ToastNotification } from "../../structures/ToastNotification";
-
+import { DefaultInput } from "../../inputs/DefaultInput";
 import { Submit } from "../../buttons/Submit";
+import { ToastNotification } from "../../structures/ToastNotification";
 
 import { BsXCircle } from "react-icons/bs";
 
@@ -24,12 +24,11 @@ export const FormTransaction = () => {
       <S.Form onSubmit={handleSubmit}>
         <S.Field>
           <S.Label htmlFor="value">Valor</S.Label>
-          <S.Input
+          <DefaultInput
             type="number"
             name="value"
             id="value"
-            onChange={handleChange}
-            autoComplete="off"
+            changeFunction={handleChange}
             value={inputs.value}
           />
         </S.Field>
@@ -73,12 +72,11 @@ export const FormTransaction = () => {
 
         <S.Field>
           <S.Label htmlFor="description">Descrição</S.Label>
-          <S.Input
+          <DefaultInput
             type="text"
             name="description"
             id="description"
-            onChange={handleChange}
-            autoComplete="off"
+            changeFunction={handleChange}
             value={inputs.description}
           />
         </S.Field>

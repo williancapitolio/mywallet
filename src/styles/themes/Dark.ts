@@ -4,7 +4,7 @@ export default {
     text: {
       primary: "#f9f9f9",
       secondary: "#585858",
-      light: "#000",
+      light: "#000000",
       dark: "#f9f9f9",
     },
     background: {

@@ -1,1 +1,0 @@
-export { FormUser } from "./FormUser";

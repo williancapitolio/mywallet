@@ -27,6 +27,7 @@ export const userSlice = createSlice({
         modalFormUser: false,
       };
       localStorage.setItem(USER_STORAGE, JSON.stringify(state));
+      return state;
     },
     resetUser: (state) => {
       state = { ...state, name: "", modalFormUser: false };
