@@ -20,6 +20,7 @@ div#root {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  min-width: 17.5rem;
 }
 
 a {

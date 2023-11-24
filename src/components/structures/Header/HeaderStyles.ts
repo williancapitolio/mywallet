@@ -28,6 +28,10 @@ export const Hello = styled.p`
   font-size: 1.5rem;
   padding-bottom: 0.5rem;
   font-weight: 700;
+
+  @media (max-width: 20rem) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const Greetings = styled.span`

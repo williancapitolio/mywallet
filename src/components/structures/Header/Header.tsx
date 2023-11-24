@@ -5,6 +5,8 @@ import { Navbar } from "../Navbar";
 
 import * as S from "./HeaderStyles";
 import { toggleModal } from "../../../features/user/user-slice";
+import { IconButton } from "../../buttons/IconButton";
+import { BsPencilSquare } from "react-icons/bs";
 
 export const Header = () => {
   const name = useAppSelector((state) => state.user.name);
@@ -15,8 +17,12 @@ export const Header = () => {
       <S.Wrapper>
         <Navbar />
         <S.Hello>
-          Olá, {name}
-          <button onClick={() => dispatch(toggleModal())}>mudar</button>
+          Olá, {name}{" "}
+          <IconButton
+            clickAction={() => dispatch(toggleModal())}
+            bgColor="#ffff00c7"
+            icon={<BsPencilSquare />}
+          />
         </S.Hello>
 
         <S.Greetings>Seja bem-vindo&#40;a&#41;</S.Greetings>

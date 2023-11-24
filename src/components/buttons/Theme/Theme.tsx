@@ -14,16 +14,12 @@ export const Theme = () => {
   const theme = useAppSelector((state) => state.theme.title);
 
   return (
-    <>
+    <S.Button onClick={() => dispatch(toggleTheme())}>
       {theme === "dark" ? (
-        <S.Button onClick={() => dispatch(toggleTheme())}>
-          <BsSun className="btn-icon" />
-        </S.Button>
+        <BsSun className="btn-icon" />
       ) : (
-        <S.Button onClick={() => dispatch(toggleTheme())}>
-          <BsMoonFill className="btn-icon" />
-        </S.Button>
+        <BsMoonFill className="btn-icon" />
       )}
-    </>
+    </S.Button>
   );
 };

@@ -14,4 +14,8 @@ export const Title = styled.h1`
   top: 0;
   left: 0;
   margin: 1rem 0 0 1rem;
+
+  @media (max-width: 20rem) {
+    font-size: 1.75rem;
+  }
 `;
