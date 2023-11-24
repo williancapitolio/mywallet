@@ -20,6 +20,7 @@ declare module "styled-components" {
         ok: string;
         danger: string;
         warning: string;
+        attention: string;
       };
       boxShadow: string;
     };

@@ -31,7 +31,7 @@ export const userSlice = createSlice({
     },
     resetUser: (state) => {
       state = { ...state, name: "", modalFormUser: false };
-      localStorage.removeItem(USER_STORAGE);
+      localStorage.removeItem(USER_STORAGE)
       return state;
     },
     toggleModal: (state) => {

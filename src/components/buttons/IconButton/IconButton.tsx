@@ -1,8 +1,10 @@
+import { ExecutionContext } from "styled-components";
+
 import * as S from "./IconButtonStyles";
 
 type IconButtonProps = {
   clickAction: () => void;
-  bgColor: string;
+  bgColor: string | ((props: ExecutionContext) => string);
   icon: React.ReactNode;
 };
 

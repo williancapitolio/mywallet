@@ -17,6 +17,7 @@ export default {
       ok: "#207567",
       danger: "#b80f0a",
       warning: "#8d4004",
+      attention: "#eead2d",
     },
     boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
   },
