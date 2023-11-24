@@ -27,7 +27,6 @@ export const useSetUser = () => {
 
   return {
     name,
-    username,
     handleSetUsername,
     handleConfirmUsername,
     checkIfPressKeyEnter,

@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, { ExecutionContext } from "styled-components";
 
 type IconButtonStylesProps = {
-  $bgcolor: string;
+  $bgcolor: string | ((props: ExecutionContext) => string);
 };
 
 export const Button = styled.button<IconButtonStylesProps>`

@@ -12,7 +12,6 @@ export const ModalForm = () => {
   const { modal, handleCloseModal, checkIfClickOutOfModal } = useManageModal();
   const {
     name,
-    username,
     handleSetUsername,
     handleConfirmUsername,
     checkIfPressKeyEnter,
@@ -38,7 +37,7 @@ export const ModalForm = () => {
                 name="name"
                 id="name"
                 changeFunction={handleSetUsername}
-                value={username}
+                defaultValue={name}
               />
             </S.Label>
           </S.Body>
