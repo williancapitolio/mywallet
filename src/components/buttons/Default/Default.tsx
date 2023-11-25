@@ -1,7 +1,9 @@
+import { ExecutionContext } from "styled-components";
+
 import * as S from "./DefaultStyles";
 
 type DefaultProps = {
-  type: string;
+  type: string | ((props: ExecutionContext) => string);
   btnAction: (ev: React.SyntheticEvent) => void;
   text: string;
 };

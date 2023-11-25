@@ -31,7 +31,7 @@ export const Main = () => {
 
   const totalWithdraw = formatToBRL(useAppSelector(selectTotalWithdraws));
 
-  const cardsData = [
+  const CARDS_DATA = [
     {
       title: "Saldo",
       icon: <BsCurrencyDollar className="btn-icon" />,
@@ -52,7 +52,7 @@ export const Main = () => {
   return (
     <S.Main>
       <S.ContentCards>
-        {cardsData.map((items, index) => (
+        {CARDS_DATA.map((items, index) => (
           <CardValue
             key={index}
             title={items.title}

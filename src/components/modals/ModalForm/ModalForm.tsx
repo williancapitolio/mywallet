@@ -43,12 +43,12 @@ export const ModalForm = () => {
           </S.Body>
           <S.Footer>
             <Default
-              type="cancel"
+              type={(props) => props.theme.colors.background.primary}
               btnAction={handleCloseModal}
               text="Cancelar"
             />
             <Default
-              type="confirm"
+              type={(props) => props.theme.colors.button.ok}
               btnAction={handleConfirmUsername}
               text="Confirmar"
             />
