@@ -5,6 +5,7 @@ export const Wrapper = styled.section`
   height: 100vh;
   background-color: ${(props) => props.theme.colors.background.primary}c1;
   position: absolute;
+  z-index: 1;
 `;
 
 export const Container = styled.div`

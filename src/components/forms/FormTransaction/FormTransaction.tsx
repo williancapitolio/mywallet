@@ -34,7 +34,7 @@ export const FormTransaction = () => {
         </S.Field>
 
         <S.Field>
-          <S.Label htmlFor="type">Tipo</S.Label>
+          <S.RadiosTitle>Tipo</S.RadiosTitle>
           <S.Radios>
             <S.RadioContainer>
               <S.RadioInput

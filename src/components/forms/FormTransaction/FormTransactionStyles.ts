@@ -54,6 +54,11 @@ export const Input = styled.input`
   }
 `;
 
+export const RadiosTitle = styled.span`
+font-size: 0.75rem;
+cursor: pointer;
+`;
+
 export const Radios = styled.section`
   display: flex;
   flex-direction: row;

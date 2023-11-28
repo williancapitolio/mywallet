@@ -16,6 +16,7 @@ export const Button = styled.button`
   margin: 1rem 1rem 0 0;
   border-radius: 2rem;
   outline: none;
+  z-index: 1;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.background.tertiary};
