@@ -62,7 +62,7 @@ Access: [http://localhost:5173](http://localhost:5173)
 
 ## :soon: Future implementation
 
-- Integrate with and API and DB;
+- Integrate with API and DB;
 
 ## :bust_in_silhouette: Developer
 
@@ -81,14 +81,14 @@ Access: [http://localhost:5173](http://localhost:5173)
 
 ## :camera_flash: App Screenshots
 
-|     \*\*\*\*     | **Mobile (Dark)** | **Mobile(Light)** | **Desktop (Dark)** | **Desktop (Light)** |
+|                  | **Mobile (Dark)** | **Mobile(Light)** | **Desktop (Dark)** | **Desktop (Light)** |
 | :--------------: | :---------------: | :---------------: | :----------------: | :-----------------: |
-|  **Start Page**  |       ![]()       |       ![]()       |       ![]()        |        ![]()        |
-| **Modal Start**  |       ![]()       |       ![]()       |       ![]()        |        ![]()        |
-|  **Home Page**   |       ![]()       |       ![]()       |       ![]()        |        ![]()        |
-| **Table Empty**  |       ![]()       |       ![]()       |       ![]()        |        ![]()        |
-| **Table Filled** |       ![]()       |       ![]()       |       ![]()        |        ![]()        |
-|  **Error Page**  |       ![]()       |       ![]()       |       ![]()        |        ![]()        |
+|  **Start Page**  |       ![]()       |       ![]()       |       ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_dark/start.jpeg)        |        ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_light/start.jpeg)        |
+| **Modal Start**  |       ![]()       |       ![]()       |       ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_dark/modal.jpeg)        |        ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_light/modal.jpeg)        |
+|  **Home Page**   |       ![]()       |       ![]()       |       ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_dark/home.jpeg)        |        ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_light/home.jpeg)        |
+| **Table Empty**  |       ![]()       |       ![]()       |       ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_dark/table-empty.jpeg)        |        ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_light/table-empty.jpeg)        |
+| **Table Filled** |       ![]()       |       ![]()       |       ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_dark/table-filled.jpeg)        |        ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_light/table-filled.jpeg)        |
+|  **Error Page**  |       ![]()       |       ![]()       |       ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_dark/error.jpeg)        |        ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_light/error.jpeg)        |
 
 ## :dart: Project status
 
