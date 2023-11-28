@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Main = styled.main`
   width: 100%;
   max-width: 64rem;
-  margin: 0 1rem;
+  /* margin: 0 1rem; */
   position: relative;
   padding-top: 5.5rem;
 

@@ -1,5 +1,7 @@
-import { Layout } from "./components/structures/Layout";
+import { RouterProvider } from "react-router-dom";
+
+import { router } from "./router";
 
 export const App = () => {
-  return <Layout />;
+  return <RouterProvider router={router} />;
 };

@@ -32,6 +32,10 @@ export const Hello = styled.p`
   @media (max-width: 20rem) {
     font-size: 1.25rem;
   }
+
+  @media (max-width: 18.125rem) {
+    font-size: 1.125rem;
+  }
 `;
 
 export const Greetings = styled.span`

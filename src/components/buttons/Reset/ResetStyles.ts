@@ -19,4 +19,10 @@ export const Button = styled.button`
   &:hover {
     opacity: 0.85;
   }
+
+  @media (max-width: 21.25rem) {
+    font-size: 0.5rem;
+    padding-inline: 0.25rem;
+    gap: 0.125rem;
+  }
 `;

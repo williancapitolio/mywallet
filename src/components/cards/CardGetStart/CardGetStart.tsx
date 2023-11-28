@@ -7,13 +7,13 @@ import { BsCircle, BsCircleFill } from "react-icons/bs";
 import * as S from "./CardGetStartStyles";
 
 export const CardGetStart = () => {
-  const { dataCard, page, setPage, cardQuantityArray } = useGetStartCard();
+  const { DATA_CARD, page, setPage, cardQuantityArray } = useGetStartCard();
 
   return (
     <S.Card>
-      <S.Icon>{dataCard[page - 1].icon}</S.Icon>
-      <S.Title>{dataCard[page - 1].title}</S.Title>
-      <S.Text>{dataCard[page - 1].text}</S.Text>
+      <S.Icon>{DATA_CARD[page - 1].icon}</S.Icon>
+      <S.Title>{DATA_CARD[page - 1].title}</S.Title>
+      <S.Text>{DATA_CARD[page - 1].text}</S.Text>
       <S.Pagination>
         {cardQuantityArray.map((id) => (
           <IconSmallButton
@@ -21,7 +21,7 @@ export const CardGetStart = () => {
             id={id + 1}
             handleClick={() => setPage(id + 1)}
             icon={
-              dataCard[page - 1].idCard === id + 1 ? (
+              DATA_CARD[page - 1].idCard === id + 1 ? (
                 <BsCircleFill className="cardIconBtn" />
               ) : (
                 <BsCircle className="cardIconBtn" />

@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 
 import { setUser } from "../features/user/user-slice";
@@ -13,12 +15,18 @@ export const useSetUser = () => {
 
   const [username, setUsername] = useState<string>(name);
 
+  const navigate = useNavigate();
+
   const handleSetUsername = (ev: React.SyntheticEvent) => {
     setUsername((ev.target as HTMLInputElement).value);
   };
 
   const handleConfirmUsername = () => {
-    if (username) dispatch(setUser(username));
+    if (username) {
+      setUsername("");
+      dispatch(setUser(username));
+      navigate("/home");
+    }
   };
 
   const checkIfPressKeyEnter = (ev: React.KeyboardEvent) => {

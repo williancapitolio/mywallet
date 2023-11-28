@@ -15,7 +15,7 @@ type dataCardProps = {
 };
 
 export const useGetStartCard = () => {
-  const dataCard: dataCardProps[] = [
+  const DATA_CARD: dataCardProps[] = [
     {
       idCard: 1,
       icon: <BsWallet2 className="cardIcon" />,
@@ -32,7 +32,7 @@ export const useGetStartCard = () => {
       idCard: 3,
       icon: <BsArrowDown className="cardIcon" />,
       title: "Depósitos",
-      text: "Todos os depósitos realizados",
+      text: "Todos os depósitos",
     },
     {
       idCard: 4,
@@ -46,7 +46,7 @@ export const useGetStartCard = () => {
 
   const cardQuantityArray = [];
 
-  for (let i = 0; i < dataCard.length; i++) {
+  for (let i = 0; i < DATA_CARD.length; i++) {
     cardQuantityArray.push(i);
   }
 
@@ -58,5 +58,5 @@ export const useGetStartCard = () => {
     () => clearTimeout(timer);
   }, [page]); */
 
-  return { dataCard, page, setPage, cardQuantityArray };
+  return { DATA_CARD, page, setPage, cardQuantityArray };
 };

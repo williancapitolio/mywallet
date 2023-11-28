@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 
 import { resetUser, toggleModal } from "../../../features/user/user-slice";
@@ -16,6 +18,9 @@ export const Header = () => {
   const name = useAppSelector((state) => state.user.name);
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
   return (
     <S.Header>
       <S.Wrapper>
@@ -31,6 +36,7 @@ export const Header = () => {
             clickAction={() => {
               dispatch(resetUser());
               dispatch(resetWallet());
+              navigate("/");
             }}
             bgColor={(props) => props.theme.colors.button.danger}
             icon={<BsPersonX />}
