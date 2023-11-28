@@ -62,7 +62,7 @@ Access: [http://localhost:5173](http://localhost:5173)
 
 ## :camera_flash: App Screenshots
 
-|                  | **Mobile (Dark)** | **Mobile(Light)** | **Desktop (Dark)** | **Desktop (Light)** |
+|                  | **:iphone: (Dark)** | **:iphone: (Light)** | **:desktop_computer: (Dark)** | **:desktop_computer: (Light)** |
 | :--------------: | :---------------: | :---------------: | :----------------: | :-----------------: |
 |  **Start Page**  |       ![]()       |       ![]()       |       ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_dark/start.jpeg)        |        ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_light/start.jpeg)        |
 | **Modal Start**  |       ![]()       |       ![]()       |       ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_dark/modal.jpeg)        |        ![](https://github.com/williancapitolio/mywallet/blob/main/docs/screenshots/desktop_light/modal.jpeg)        |
