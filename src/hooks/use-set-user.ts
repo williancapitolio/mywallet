@@ -23,9 +23,11 @@ export const useSetUser = () => {
 
   const handleConfirmUsername = () => {
     if (username) {
-      setUsername("");
-      dispatch(setUser(username));
-      navigate("/home");
+      if (username.length <= 15) {
+        setUsername("");
+        dispatch(setUser(username));
+        navigate("/home");
+      }
     }
   };
 

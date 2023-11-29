@@ -12,13 +12,13 @@ Get a complete wallet management application that tells you your total balance a
 - <b>4</b> Logout;
 - <b>5</b> Sync Wallet and User with localStorage;
 - <b>6</b> Sync Dark and Light mode with localStorage;
-- <b>7</b> Used Redux to manage global states like User, Wallet and Theme.
+- <b>7</b> Redux to manage global states like User, Wallet and Theme.
 
 ## :hammer_and_wrench: Tech and Libraries
 
+- TypeScript;
 - React;
 - Vite;
-- TypeScript;
 - Redux;
 - Redux Toolkit;
 - Styled Components;
@@ -73,7 +73,7 @@ Access: [http://localhost:5173](http://localhost:5173)
 
 ## :soon: Future implementation
 
-- Integrate with API and DB;
+- Integrate with API and DB.
 
 ## :call_me_hand: Developer
 

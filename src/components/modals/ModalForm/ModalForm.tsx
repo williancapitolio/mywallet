@@ -38,6 +38,7 @@ export const ModalForm = () => {
                 id="name"
                 changeFunction={handleSetUsername}
                 defaultValue={name}
+                placeholder="Máximo 15 caracteres"
               />
             </S.Label>
           </S.Body>
