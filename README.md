@@ -22,7 +22,7 @@ Get a complete wallet management application that tells you your total balance a
 - Redux;
 - Redux Toolkit;
 - Styled Components;
-- React Douter DOM;
+- React Router DOM;
 - React Icons;
 - HTML.
 
